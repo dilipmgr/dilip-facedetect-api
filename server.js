@@ -29,30 +29,32 @@ const app=express();
 app.use(bodyParser.json());
 app.use(cors())
 
-const database={
-    users:[
-        {
-            id:"123",
-            name:"Dilip",
-            email:"dkt@gmail.com",
-            password:'nara',
-            entries:0,
-            joined:new Date()
+// const database={
+//     users:[
+//         {
+//             id:"123",
+//             name:"Dilip",
+//             email:"dkt@gmail.com",
+//             password:'nara',
+//             entries:0,
+//             joined:new Date()
 
-        },
-        {
-            id:"124",
-            name:"Krishna",
-            email:"krishna@gmail.com",
-            password:'pokhara',
-            entries:0,
-            joined:new Date()
+//         },
+//         {
+//             id:"124",
+//             name:"Krishna",
+//             email:"krishna@gmail.com",
+//             password:'pokhara',
+//             entries:0,
+//             joined:new Date()
 
-        }
+//         }
 
-    ]
+//     ]
 
-}
+// }
+
+// app.get('/',(req,res)=>{res.send(database.users)})
 app.get('/',(req,res)=>{res.send('It is working!')})
 app.post('/signin',signIn.handleSignin(db,bcrypt))
 app.post('/register',(req,res)=>{register.handleRegister(req,res,db,bcrypt)})  
@@ -76,8 +78,9 @@ app.post('/imageurl',(req,res)=>{image.handleApiCall(req,res)})
     //     res.status(400).json('img not found');
     // }
 
-
-app.listen(process.env.PORT||3000,(req,res)=>{
+    // app.listen(3000,(req,res)=>{
+    //     console.log("app is running on port 3000");
+app.listen(process.env.PORT || 3000,()=>{
     console.log(`app is running on port ${process.env.PORT}`);
     
 });
