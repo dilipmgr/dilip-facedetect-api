@@ -14,10 +14,12 @@ const signIn=require('./Controllers/signin');
 const db = knex({
     client: 'pg',
     connection: {
-      host : '127.0.0.1',
-      user : 'postgres',
-      password : 'postgres123',
-      database : 'smart-brain'
+        connectionString:process.env.database_URL,
+        ssl:true,
+    //   host : '127.0.0.1',
+    //   user : 'postgres',
+    //   password : 'postgres123',
+    //   database : 'smart-brain'
     }
   });
 
