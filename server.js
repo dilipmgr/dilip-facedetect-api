@@ -14,12 +14,12 @@ const signIn=require('./Controllers/signin');
 const db = knex({
     client: 'pg',
     connection: {
-        // connectionString:process.env.DATABASE_URL,
-        // ssl:true,
-      host : '127.0.0.1',
-      user : 'postgres',
-      password : 'postgres123',
-      database : 'smart-brain'
+        connectionString:process.env.DATABASE_URL,
+        ssl:true,
+    //   host : '127.0.0.1',
+    //   user : 'postgres',
+    //   password : 'postgres123',
+    //   database : 'smart-brain'
     }
   });
 
@@ -81,6 +81,6 @@ app.post('/imageurl',(req,res)=>{image.handleApiCall(req,res)})
     // app.listen(3000,(req,res)=>{
     //     console.log('app is running on port 3000');
 app.listen(process.env.PORT||3000,()=>{
-     console.log(`app is running on port ${process.env.PORT}`);
+    console.log(`app is running on port ${process.env.PORT}`);
     
 });
